@@ -1,4 +1,3 @@
-
 <html lang="ur">
 <head>
     <meta charset="UTF-8">
@@ -27,9 +26,26 @@
         .btn-primary:hover {
             background-color: #0256a1;
         }
+        header, footer {
+            background-color: #0275d8;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        footer a {
+            color: white;
+        }
+        .map-container {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
+
+    <header>
+        <h1>خوشحالی سرمایہ</h1>
+        <p>آسان قرض حاصل کریں</p>
+    </header>
 
     <div class="container mt-4">
         <h1 class="text-center text-primary">خوشحالی سرمایہ</h1>
@@ -66,7 +82,16 @@
             <a href="https://www.khushhalibank.com.pk" class="btn btn-success btn-lg">🌐 ویب سائٹ وزٹ کریں</a>
         </div>
 
+        <div class="map-container">
+            <h4 class="text-center">🔹 ہمارے بینک کا مقام</h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.3184296246023!2d144.9630583153154!3d-37.81628297975133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf0727a4f1b5e7a0!2sCommonwealth%20Bank!5e0!3m2!1sen!2s!4v1614299055943!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </div>
+
+    <footer>
+        <p>خوشحالی بینک © 2025</p>
+        <p><a href="https://www.khushhalibank.com.pk/privacy-policy">Privacy Policy</a> | <a href="https://www.khushhalibank.com.pk/terms">Terms of Service</a></p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
