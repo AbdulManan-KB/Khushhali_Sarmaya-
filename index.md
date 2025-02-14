@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -181,5 +181,5 @@
         <div class="container">
             <p>خوشحالی بینک پھالیہ © 2025</p>
             <p>
-                <a href="https://www.khushhalibank.com.pk/privacy-policy" target="_blank" rel="noopener noreferrer">رازداری کی پالیسی</a> | 
+                <a href="https://www.khushhalibank.com.pk/privacy-policy" target="_blank" rel="noopener noreferrer">رازداری کی پالیسی</a> 
                 </a>
