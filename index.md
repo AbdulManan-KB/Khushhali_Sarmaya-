@@ -375,14 +375,7 @@
         </section>
 
         <section class="map-container">
-            <h4 class="section-title text-center">📍 ہمارے بینک کا مقام</h4>
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d73.5867651!3d32.4331851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDI2JzAwLjgiTiA3M8KwMzUnMTIuMSJF!5e0!3m2!1sen!2s!4v1614299055943!5m2!1sen!2s"
-                loading="lazy"
-                title="خوشحالی بینک کا مقام"
-                allowfullscreen>
-            </iframe>
-        </section>
+            <h4 class="section>
     </main>
 
     <footer>
