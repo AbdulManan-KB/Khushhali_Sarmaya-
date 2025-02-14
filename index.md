@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="خوشحالی سرمایہ - آسان اور تیز ترین کاروباری قرض">
+    <meta name="description" content="آسان اور تیز ترین کاروباری قرض">
     <title>خوشحالی سرمایہ - کاروباری قرضہ</title>
     
     <!-- Google Fonts - Noto Nastaliq Urdu -->
@@ -182,4 +182,4 @@
             <p>خوشحالی بینک پھالیہ © 2025</p>
             <p>
                 <a href="https://www.khushhalibank.com.pk/privacy-policy" target="_blank" rel="noopener noreferrer">رازداری کی پالیسی</a> 
-                </a>
+            
