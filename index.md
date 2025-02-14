@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>خوشحالی سرمایہ -کاروباری قرضہ
+    <title>خوشحالی سرمایہ -کاروباری قرضہ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
@@ -84,7 +84,8 @@
 
         <div class="map-container">
             <h4 class="text-center">🔹 ہمارے بینک کا مقام</h4>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d73.5867651!3d32.4331851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDI2JzAwLjgiTiA3M8KwMzUnMTIuMSJF!5e0!3m2!1sen!2s!4v1614299055943!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>       </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d73.5867651!3d32.4331851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDI2JzAwLjgiTiA3M8KwMzUnMTIuMSJF!5e0!3m2!1sen!2s!4v1614299055943!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </div>
 
     <footer>
