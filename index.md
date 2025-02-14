@@ -26,13 +26,6 @@
             background-color: var(--bg-light);
             line-height: 1.8;
         }
-
-        .container {
-            max-width: 900px;
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
             margin-top: 2rem;
             margin-bottom: 2rem;
         }
@@ -166,9 +159,8 @@
         </section>
 
         <section class="text-center my-5">
-            <a href="tel:111-047-047" class="btn btn-primary btn-lg">
-                📞 ابھی کال کریں: 111-047-047
-            </a>
+            <a href="tel:03460408190" class="btn btn-primary btn-lg">
+                📞 ابھی کال کریں03460408190            </a>
             <a href="https://www.khushhalibank.com.pk" class="btn btn-success btn-lg" target="_blank" rel="noopener noreferrer">
                 🌐 ویب سائٹ وزٹ کریں
             </a>
