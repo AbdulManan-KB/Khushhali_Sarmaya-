@@ -1,4 +1,19 @@
+// Add these console logs to your existing button click handlers
+document.querySelectorAll('.apply-now').forEach(button => {
+    button.addEventListener('click', () => {
+        console.log('Apply Now button clicked'); // Add this line
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+// Add this at the start of your JavaScript to check if buttons are found
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Loaded');
+    const applyButtons = document.querySelectorAll('.apply-now');
+    console.log('Number of apply buttons found:', applyButtons.length);
+    // ... rest of your code
+});document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
