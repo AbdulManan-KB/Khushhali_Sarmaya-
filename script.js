@@ -39,15 +39,18 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(card);
     });
-});
-// Add this to your existing JavaScript file
-document.addEventListener('DOMContentLoaded', function() {
+
+    // Modal and Form Handling
     const modal = document.getElementById('applicationModal');
     const applyNowButtons = document.querySelectorAll('.apply-now');
     const closeModal = document.querySelector('.close-modal');
     const form = document.getElementById('loanApplicationForm');
     const cancelBtn = document.querySelector('.cancel-btn');
 
+    // Constants
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyiqyq__OMHUU91306W1CgHTgSK3xwKVkHyw1V6ixkA9AcHR-xEBGsWKRh4xNVXF4_J/exec';
+    submissionDate: "2025-02-15 17:16:23",
+submittedBy: "AbdulManan-KB"
     // CNIC formatting
     const cnicInput = document.getElementById('cnic');
     cnicInput.addEventListener('input', function(e) {
@@ -93,51 +96,105 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === modal) closeModalHandler();
     });
 
+    // Form validation function
+    function validateFormData(data) {
+        // CNIC validation (format: 12345-1234567-1)
+        const cnicRegex = /^\d{5}-\d{7}-\d{1}$/;
+        if (!cnicRegex.test(data.cnic)) {
+            showMessage('براہ کرم درست شناختی کارڈ نمبر درج کریں', 'error');
+            return false;
+        }
+
+        // Phone validation (format: 0300-1234567)
+        const phoneRegex = /^\d{4}-\d{7}$/;
+        if (!phoneRegex.test(data.phone)) {
+            showMessage('براہ کرم درست موبائل نمبر درج کریں', 'error');
+            return false;
+        }
+
+        // Monthly income validation
+        if (!data.monthlyIncome || parseInt(data.monthlyIncome) < 10000) {
+            showMessage('ماہانہ آمدنی کم از کم 10,000 روپے ہونی چاہیے', 'error');
+            return false;
+        }
+
+        return true;
+    }
+
+    // Message display function
+    function showMessage(message, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${type}-message`;
+        messageDiv.textContent = message;
+        
+        // Remove any existing messages
+        const existingMessage = form.querySelector('.message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+        
+        form.insertBefore(messageDiv, form.firstChild);
+        
+        // Remove message after 5 seconds
+        setTimeout(() => {
+            messageDiv.remove();
+        }, 5000);
+    }
+
     // Form submission
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Validate form
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
-
-        // Prepare form data
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+        // Show loading state
+        form.classList.add('loading');
+        const submitButton = form.querySelector('.submit-btn');
+        submitButton.disabled = true;
         
-        // Add timestamp and user info
-        data.submissionDate = new Date().toISOString();
-        data.submittedBy = 'AbdulManan-KB';
-
+        // Get form data
+        const formData = new FormData(form);
+        const data = {
+            submissionDate: "2025-02-15 17:10:21",
+            submittedBy: "AbdulManan-KB",
+            ...Object.fromEntries(formData.entries())
+        };
+        
         try {
-            // Show loading state
-            form.classList.add('loading');
-            
-            // Simulate API call (replace with your actual API endpoint)
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Show success message
-            const successMessage = document.createElement('div');
-            successMessage.className = 'success-message';
-            successMessage.textContent = 'آپ کی درخواست کامیابی سے جمع کر لی گئی ہے۔';
-            form.insertBefore(successMessage, form.firstChild);
+            // Validate form data
+            if (!validateFormData(data)) {
+                form.classList.remove('loading');
+                submitButton.disabled = false;
+                return;
+            }
 
-            // Reset form after 2 seconds
-            setTimeout(() => {
-                closeModalHandler();
-                successMessage.remove();
-            }, 2000);
+            // Send data to Google Sheets
+            const response = await fetch(GOOGLE_SHEETS_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
 
-            // Log the submission (replace with your actual logging logic)
-            console.log('Form submitted:', data);
+            const result = await response.json();
+            
+            if (result.status === 'success') {
+                showMessage('آپ کی درخواست کامیابی سے جمع کر لی گئی ہے۔', 'success');
+                
+                // Reset form and close modal after delay
+                setTimeout(() => {
+                    form.reset();
+                    closeModalHandler();
+                }, 2000);
+            } else {
+                throw new Error(result.message || 'Submission failed');
+            }
 
         } catch (error) {
             console.error('Submission error:', error);
-            alert('درخواست جمع کرنے میں مسئلہ پیش آگیا۔ براہ کرم دوبارہ کوشش کریں۔');
+            showMessage('درخواست جمع کرنے میں مسئلہ پیش آگیا۔ براہ کرم دوبارہ کوشش کریں۔', 'error');
         } finally {
             form.classList.remove('loading');
+            submitButton.disabled = false;
         }
     });
 });
