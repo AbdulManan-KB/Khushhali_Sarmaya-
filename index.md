@@ -1,185 +1,114 @@
-
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="آسان اور تیز ترین کاروباری قرض">
-    <title>خوشحالی سرمایہ - کاروباری قرضہ</title>
-    
-    <!-- Google Fonts - Noto Nastaliq Urdu -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خوشحالی سرمایہ - کاروباری قرض</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    
-    <!-- Custom CSS -->
-    <style>
-        :root {
-            --primary-color: #0275d8;
-            --hover-color: #0256a1;
-            --bg-light: #f8f9fa;
-            --shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            background-color: var(--bg-light);
-            line-height: 1.8;
-        }
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            margin: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--hover-color);
-            transform: translateY(-2px);
-        }
-
-        header, footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1.5rem 0;
-            text-align: center;
-        }
-
-        footer {
-            margin-top: 2rem;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            color: #f0f0f0;
-            text-decoration: underline;
-        }
-
-        .feature-list li {
-            margin-bottom: 1rem;
-            position: relative;
-            padding-right: 1.5rem;
-        }
-
-        .feature-list li::before {
-            content: "•";
-            color: var(--primary-color);
-            font-weight: bold;
-            position: absolute;
-            right: 0;
-        }
-
-        .map-container {
-            margin: 2rem 0;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-            border-radius: 8px;
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            margin: 2rem 0 1rem;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .btn {
-                width: 100%;
-                margin: 0.5rem 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>خوشحالی سرمایہ</h1>
-            <p class="mb-0">آسان قرض حاصل کریں</p>
-        </div>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="خوشحالی بینک" class="logo-img">
+            </div>
+            <div class="nav-links">
+                <a href="#home">ہوم</a>
+                <a href="#features">خصوصیات</a>
+                <a href="#loan-details">قرض کی تفصیلات</a>
+                <a href="#contact" class="cta-button">رابطہ کریں</a>
+            </div>
+        </nav>
     </header>
 
-    <main class="container">
-        <section class="text-center mb-5">
-            <h1 class="text-primary">خوشحالی سرمایہ</h1>
-            <h3>آسان اور تیز ترین کاروباری قرض</h3>
-            <p class="lead">اپنے کاروبار کو ترقی دیں اور مزید کامیاب بنائیں!</p>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>خوشحالی سرمایہ – اپنے خوابوں کو حقیقت میں بدلیں!</h1>
+                <p class="hero-text">اگر آپ اپنے کاروبار کو بڑھانے کے زبردست آئیڈیاز رکھتے ہیں، لیکن سرمایہ کی کمی رکاوٹ بنی ہوئی ہے، تو گھبرائیں نہیں!</p>
+                <button class="apply-now">ابھی اپلائی کریں</button>
+            </div>
         </section>
 
-        <hr>
-
-        <section>
-            <h4 class="section-title">✨ قرض کی نمایاں خصوصیات</h4>
-            <ul class="feature-list">
-                <li>رقم: <strong>350,000 سے 1,000,000 روپے تک</strong></li>
-                <li>واپسی: <strong>آسان ماہانہ اقساط</strong></li>
-                <li>پراسیس: <strong>تیز اور کم از کم کاغذی کارروائی</strong></li>
-                <li>ضمانت: <strong>ذاتی ضمانت، رجسٹری یا سونا لازمی</strong></li>
-            </ul>
+        <section id="features" class="features-section">
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>بڑا آرڈر ملا لیکن وسائل کم ہیں؟</h3>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-store"></i>
+                    <h3>نیا کاروبار شروع کرنا چاہتے ہیں؟</h3>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>اپنے حریف سے آگے نکلنا چاہتے ہیں؟</h3>
+                </div>
+            </div>
         </section>
 
-        <section>
-            <h4 class="section-title">🎯 کس کے لیے بہترین؟</h4>
-            <ul class="feature-list">
-                <li>چھوٹے اور درمیانے درجے کے کاروبار</li>
-                <li>نئے کاروبار شروع کرنے والے افراد</li>
-                <li>مشینری، اسٹاک، یا ورکنگ کیپیٹل کے لیے سرمایہ درکار ہو</li>
-            </ul>
+        <section id="loan-details" class="loan-details-section">
+            <h2>قرض کی تفصیلات</h2>
+            <div class="loan-info">
+                <div class="info-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>رقم</h3>
+                    <p>3,50,001 سے 10,00,000 روپے تک</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>واپسی کی مدت</h3>
+                    <p>6 سے 36 ماہ</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-user"></i>
+                    <h3>عمر کی حد</h3>
+                    <p>22 سال سے 60 سال تک</p>
+                </div>
+            </div>
         </section>
 
-        <section>
-            <h4 class="section-title">💫 خوشحالی سرمایہ کیوں منتخب کریں؟</h4>
-            <ul class="feature-list">
-                <li>محفوظ اور آسان قرض کا حصول</li>
-                <li>کاروبار بڑھانے کے لیے موزوں</li>
-                <li>سروس چارجز SOC کے مطابق</li>
-            </ul>
+        <section id="collateral" class="collateral-section">
+            <h2>کولیٹرل (ضمانت) کی شرائط</h2>
+            <div class="collateral-types">
+                <div class="collateral-card">
+                    <h3>Unsecured Loan</h3>
+                    <p class="loan-range">3,50,001 سے 5,00,000 روپے تک</p>
+                    <ul>
+                        <li>آپ کے چیک</li>
+                        <li>ایک شخصی ضمانت درکار</li>
+                        <li>بڑی جائیداد یا سونا رکھوانے کی ضرورت نہیں</li>
+                    </ul>
+                </div>
+                <div class="collateral-card">
+                    <h3>Secured Loan</h3>
+                    <p class="loan-range">5,00,001 سے 10,00,000 روپے تک</p>
+                    <ul>
+                        <li>کاروباری اثاثہ جات کی ہائپوتیکیشن</li>
+                        <li>آپ کے چیک</li>
+                        <li>رجسٹرڈ یا ایکوئٹیبل مارگیج</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
-        <section class="text-center my-5">
-            <a href="tel:03460408190" class="btn btn-primary btn-lg">
-                📞 ابھی کال کریں03460408190            </a>
-            <a href="https://www.khushhalibank.com.pk" class="btn btn-success btn-lg" target="_blank" rel="noopener noreferrer">
-                🌐 ویب سائٹ وزٹ کریں
-            </a>
-        </section>
-
-        <section class="map-container">
-            <h4 class="section-title text-center">📍 ہمارے بینک کا مقام</h4>
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d0!2d73.5867651!3d32.4331851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDI2JzAwLjgiTiA3M8KwMzUnMTIuMSJF!5e0!3m2!1sen!2s!4v1614299055943!5m2!1sen!2s"
-                loading="lazy"
-                title="خوشحالی بینک کا مقام"
-                allowfullscreen>
-            </iframe>
+        <section id="contact" class="contact-section">
+            <div class="contact-info">
+                <h2>ہم سے رابطہ کریں</h2>
+                <div class="contact-details">
+                    <p><i class="fas fa-phone"></i> 0346-0408190</p>
+                    <p><i class="fas fa-globe"></i> Khushhali Microfinance Bank</p>
+                </div>
+                <button class="apply-now">ابھی اپلائی کریں</button>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>خوشحالی بینک پھالیہ © 2025</p>
-            <p>
-                <a href="https://www.khushhalibank.com.pk/privacy-policy" target="_blank" rel="noopener noreferrer">رازداری کی پالیسی</a> 
-            
+    <footer class="footer">
+        <p>© 2025 خوشحالی مائیکروفنانس بینک - تمام حقوق محفوظ ہیں</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
