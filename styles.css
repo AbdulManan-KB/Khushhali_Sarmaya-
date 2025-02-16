@@ -55,8 +55,8 @@ body {
 }
 
 .cta-button {
-    background-color: var(--primary-green);
-    color: var(--white) !important;
+    background-color: var(--White);
+    color: var(--black) !important;
     padding: 0.5rem 1rem;
     border-radius: 5px;
 }
