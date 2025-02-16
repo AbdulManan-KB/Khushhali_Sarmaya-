@@ -25,7 +25,75 @@
             </div>
         </nav>
     </header>
+<!-- Modal Form -->
+<div id="applicationModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>قرض کی درخواست فارم</h2>
+            <span class="close-modal">&times;</span>
+        </div>
 
+        <form id="loanApplicationForm">
+            <div class="form-group">
+                <label for="fullName">مکمل نام *</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cnic">شناختی کارڈ نمبر *</label>
+                <input type="text" id="cnic" name="cnic" pattern="\d{5}-\d{7}-\d{1}" placeholder="35201-1234567-1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">موبائل نمبر *</label>
+                <input type="text" id="phone" name="phone" pattern="\d{4}-\d{7}" placeholder="0346-0408190" required>
+            </div>
+
+            <div class="form-group">
+                <label for="businessType">کاروبار کی قسم *</label>
+                <select id="businessType" name="businessType" required>
+                    <option value="">Select Business Type</option>
+                    <option value="Retail">Retail ریٹیل</option>
+                    <option value="Wholesale">Wholesale ہول سیل</option>
+                    <option value="Service">Service سروس</option>
+                    <option value="Manufacturing">Manufacturing مینوفیکچرنگ</option>
+                    <option value="Agriculture">Agriculture زراعت</option>
+                    <option value="Other">Other دیگر</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="loanAmount">قرض کی رقم *</label>
+                <select id="loanAmount" name="loanAmount" required>
+                    <option value="">Select Loan Amount</option>
+                    <option value="350001-500000">350,001 - 500,000</option>
+                    <option value="500001-750000">500,001 - 750,000</option>
+                    <option value="750001-1000000">750,001 - 1,000,000</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="businessAddress">کاروباری پتہ *</label>
+                <textarea id="businessAddress" name="businessAddress" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="monthlyIncome">ماہانہ آمدنی *</label>
+                <input type="number" id="monthlyIncome" name="monthlyIncome" min="0" placeholder="50000" required>
+                <small class="helper-text">روپے میں درج کریں</small>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="cancel-button" onclick="closeModal()">منسوخ کریں</button>
+                <button type="submit" class="submit-button">درخواست جمع کریں</button>
+            </div>
+
+            <!-- Hidden Fields -->
+            <input type="hidden" name="submissionDate" value="2025-02-16 17:14:37">
+            <input type="hidden" name="submittedBy" value="AbdulManan-KB">
+        </form>
+    </div>
+</div>
     <!-- Your other sections here -->
 
     <!-- Contact Section -->
