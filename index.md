@@ -1,3 +1,4 @@
+
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -69,6 +70,96 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // Current timestamp and user
+        const TIMESTAMP = "2025-02-16 10:07:19";
+        const USER = "AbdulManan-KB";
+        const WHATSAPP_NUMBER = "923460408190";
+
+        // Get DOM elements
+        const modal = document.getElementById('applicationModal');
+        const applyButton = document.querySelector('.apply-now');
+        const closeButton = document.querySelector('.close-modal');
+        const cancelButton = document.querySelector('.cancel-btn');
+        const form = document.getElementById('loanApplicationForm');
+
+        // Modal functions
+        function openModal() {
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            if (form) form.reset();
+        }
+
+        // Event listeners
+        applyButton.addEventListener('click', openModal);
+        closeButton.addEventListener('click', closeModal);
+        cancelButton.addEventListener('click', closeModal);
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Format CNIC
+        const cnicInput = document.getElementById('cnic');
+        cnicInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 13) value = value.slice(0, 13);
+            if (value.length >= 12) {
+                value = value.slice(0, 5) + '-' + value.slice(5, 12) + '-' + value.slice(12);
+            } else if (value.length >= 5) {
+                value = value.slice(0, 5) + '-' + value.slice(5);
+            }
+            e.target.value = value;
+        });
+
+        // Format phone
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            if (value.length >= 4) {
+                value = value.slice(0, 4) + '-' + value.slice(4);
+            }
+            e.target.value = value;
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(form);
+            
+            // Format currency
+            function formatCurrency(amount) {
+                return new Intl.NumberFormat('ur-PK').format(amount);
+            }
+
+            // Create WhatsApp message
+            const message = encodeURIComponent(`*نئی لون کی درخواست*\n
+───────────────
+📅 تاریخ: ${TIMESTAMP}\n
+👤 درخواست گزار کا نام: ${formData.get('fullName')}
+🆔 شناختی کارڈ نمبر: ${formData.get('cnic')}
+📱 فون نمبر: ${formData.get('phone')}
+💼 کاروبار کی قسم: ${formData.get('businessType')}
+💰 قرض کی رقم: ${formatCurrency(formData.get('loanAmount'))} روپے
+📍 کاروباری پتہ: ${formData.get('businessAddress')}
+💵 ماہانہ آمدنی: ${formatCurrency(formData.get('monthlyIncome'))} روپے
+───────────────
+Submitted by: ${USER}`);
+
+            // Open WhatsApp
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+            
+            // Close modal
+            closeModal();
+        });
+    </script>
 </body>
-<script src="script.js"></script>
 </html>
