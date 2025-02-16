@@ -178,7 +178,7 @@
 
     <div class="contact-info">
         <div class="contact-details">
-            <a href="tel:+923460408190" class="phone-button">
+            <a href="tel:+923460408190" class="cta-button">
                 <i class="fas fa-phone"></i>
                 0346-0408190 
                 <span class="call-text">ابھی کال ملائیں</span>
