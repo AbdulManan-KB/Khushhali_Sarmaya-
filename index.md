@@ -186,6 +186,7 @@
                 <p class="profile-title">لون آفیسر</p>
             </div>
         </div>
+        </section>
             <a href="tel:+923460408190" class="cta-button">
                 <i class="fas fa-phone"></i>
                 0346-0408190 
