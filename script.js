@@ -1,12 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Constants updated with latest timestamp from your system
-    const TIMESTAMP = "2025-02-16 05:44:31";  // Your current UTC time
+    // Constants updated with your latest timestamp
+    const TIMESTAMP = "2025-02-16 06:04:43";  // Your current UTC time
     const USER = "AbdulManan-KB";             // Your login
     const DEPLOYMENT_ID = "AKfycbw6Nyp5qTSIt9rilMrCoPXf1K6VCL_cn1ryJl5Ec0Iqd8ZPDclRlMg9e_E0dY7va6f6";
     const GOOGLE_SHEETS_URL = `https://script.google.com/macros/s/${DEPLOYMENT_ID}/exec`;
-
-    console.log('Initializing with system timestamp:', TIMESTAMP);
-    console.log('Current user:', USER);
 
     // Get DOM elements
     const modal = document.getElementById('applicationModal');
@@ -85,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const submitButton = form.querySelector('.submit-btn');
             submitButton.disabled = true;
+            submitButton.textContent = 'درخواست جمع کر رہا ہے...';
             form.classList.add('loading');
 
             try {
@@ -134,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showMessage('درخواست جمع کرنے میں مسئلہ آ گیا ہے۔ براہ کرم دوبارہ کوشش کریں۔');
             } finally {
                 submitButton.disabled = false;
+                submitButton.textContent = 'درخواست جمع کریں';
                 form.classList.remove('loading');
             }
         });
