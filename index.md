@@ -17,7 +17,7 @@
     <header class="header">
         <nav class="navbar">
             <div class="logo">
-                <img src="logo.png" alt="خوشحالی بینک" class="logo-img">
+                <img src="logo.png" alt="خوشحالی بینک" class="logo-img"> <h2>خوشحالی سرمایہ، کاروباری قرض</h2>
             </div>
             <div class="nav-links">
                 <a href="#home">ہوم</a>
