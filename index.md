@@ -31,18 +31,21 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="contact-info">
-            <h2>ہم سے رابطہ کریں</h2>
             
-            <!-- Profile Section -->
-            <div class="profile-section">
-                <div class="profile-image">
-                    <img src="profile.jpg" alt="عبدالمنان" class="profile-pic">
-                </div>
-                <div class="profile-details">
-                    <h3 class="profile-name">عبدالمنان</h3>
-                    <p class="profile-title">لون آفیسر</p>
-                </div>
-            </div>
+        
+<div class="profile-section">
+    <div class="profile-image">
+        <!-- Using a direct GitHub avatar URL -->
+        <img src="https://avatars.githubusercontent.com/u/AbdulManan-KB?size=200" 
+             alt="عبدالمنان" 
+             class="profile-pic"
+             onerror="this.src='profile.jpg'">
+    </div>
+    <div class="profile-details">
+        <h3 class="profile-name">عبدالمنان</h3>
+        <p class="profile-title">لون آفیسر</p>
+    </div>
+</div>
 
             <!-- Contact Details -->
             <div class="contact-details">
