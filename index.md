@@ -24,7 +24,7 @@
                 <a href="#features">خصوصیات</a>
                 <a href="#loan-details">قرض کی تفصیلات</a>
                 <a href="#collateral">ضمانت</a>
-                <a href="#contact" class="cta-button">رابطہ کریں</a>
+                <a href="#contact" 
             </div>
         </nav>
     </header>
@@ -34,7 +34,7 @@
             <div class="hero-content">
                 <h1>خوشحالی سرمایہ – اپنے خوابوں کو حقیقت میں بدلیں!</h1>
                 <p class="hero-text">اگر آپ اپنے کاروبار کو بڑھانے کے زبردست آئیڈیاز رکھتے ہیں، لیکن سرمایہ کی کمی رکاوٹ بنی ہوئی ہے، تو گھبرائیں نہیں!</p>
-                <button class="apply-now">ابھی اپلائی کریں</button>
+                
             </div>
         </section>
 
