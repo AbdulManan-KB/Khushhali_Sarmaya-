@@ -225,10 +225,10 @@ body {
 
 /* Profile Section */
 .profile-section {
-    margin: 2rem auto;
-    padding: 1.5rem;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem auto;
     max-width: 400px;
 }
 
@@ -237,23 +237,29 @@ body {
 }
 
 .profile-pic {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 4px solid var(--white);
+    border: 4px solid #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     object-fit: cover;
+    display: inline-block;
+}
+
+.profile-details {
+    text-align: center;
 }
 
 .profile-name {
-    color: var(--white);
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    color: #ffffff;
+    margin: 0.5rem 0;
 }
 
 .profile-title {
-    color: var(--light-gray);
+    color: #d5d5d5;
     font-size: 1.1rem;
+    margin: 0;
 }
 
 /* Contact Details */
