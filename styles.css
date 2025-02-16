@@ -1,103 +1,4 @@
-:root {
-    --primary-green: #2E8B57;
-    --primary-blue: #1E90FF;
-    --secondary-blue: #4682B4;
-    --light-green: #98FB98;
-    --white: #ffffff;
-    --black: #000000;
-    --error-red: #f44336;
-    --success-green: #4CAF50;
-    --gray-light: #f5f5f5;
-    --gray-medium: #e0e0e0;
-    --gray-dark: #666;
-}
-
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Noto Nastaliq Urdu', serif;
-    line-height: 1.6;
-    background-color: var(--gray-light);
-}
-
-/* Header and Navigation */
-.header {
-    background-color: var(--white);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo-img {
-    height: 50px;
-    transition: opacity 0.3s ease;
-}
-
-.nav-links a {
-    color: var(--primary-blue);
-    text-decoration: none;
-    margin-left: 2rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--primary-green);
-}
-
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
-    padding: 8rem 5% 4rem;
-    color: var(--white);
-    text-align: center;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Button Styles */
-.apply-now, .submit-btn, .cta-button {
-    background-color: var(--primary-green);
-    color: var(--white);
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Noto Nastaliq Urdu', serif;
-}
-
-.apply-now:hover, .submit-btn:hover, .cta-button:hover {
-    background-color: var(--secondary-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Modal Styles */
+/* Update the modal styles for better scrolling */
 .modal {
     display: none;
     position: fixed;
@@ -107,140 +8,84 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.modal.modal-active {
-    opacity: 1;
+    overflow-y: auto; /* Enable scrolling on modal itself */
+    padding: 20px 0;
 }
 
 .modal-content {
     background-color: var(--white);
-    margin: 5% auto;
+    margin: 20px auto;
     padding: 2rem;
     border-radius: 10px;
     width: 90%;
     max-width: 600px;
     position: relative;
-    transform: translateY(-20px);
-    transition: transform 0.3s ease;
+    max-height: none; /* Remove max-height restriction */
+    overflow-y: visible; /* Allow content to flow naturally */
 }
 
-.modal.modal-active .modal-content {
-    transform: translateY(0);
+/* Form specific styles */
+.application-form {
+    margin-top: 2rem;
+    padding-bottom: 1rem;
 }
 
-.close-modal {
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-/* Form Styles */
+/* Improve form group spacing */
 .form-group {
     margin-bottom: 1.5rem;
+    position: relative;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
+/* Make form inputs more touch-friendly */
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 12px;
     border: 1px solid var(--gray-medium);
     border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+    font-size: 16px; /* Prevent zoom on mobile */
+    font-family: 'Noto Nastaliq Urdu', serif;
 }
 
-.form-group textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-/* Message Styles */
-.message {
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    text-align: center;
-    font-weight: bold;
-    animation: slideDown 0.3s ease;
-}
-
-.success-message {
-    background-color: var(--success-green);
-    color: var(--white);
-}
-
-.error-message {
-    background-color: var(--error-red);
-    color: var(--white);
-}
-
-/* Loading State */
+/* Loading state improvements */
 .loading {
     position: relative;
-    pointer-events: none;
 }
 
 .loading::after {
     content: '';
-    position: absolute;
+    position: fixed; /* Change to fixed */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border: 3px solid var(--gray-light);
     border-top: 3px solid var(--primary-green);
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    z-index: 1001; /* Above modal content */
 }
 
-/* Animations */
-@keyframes slideDown {
-    from {
-        transform: translateY(-10px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes spin {
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Responsive Design */
+/* Mobile specific improvements */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    .modal {
+        padding: 10px;
     }
-    
+
     .modal-content {
-        margin: 10% auto;
-        width: 95%;
+        margin: 10px auto;
         padding: 1.5rem;
+        width: 95%;
     }
-    
+
     .form-actions {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .submit-btn, .cancel-btn {
-        width: 100%;
+        position: sticky;
+        bottom: 0;
+        background: white;
+        padding-top: 1rem;
+        margin-top: 1rem;
+        border-top: 1px solid var(--gray-medium);
     }
 }
