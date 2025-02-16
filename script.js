@@ -1,12 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Constants updated with latest timestamp
-    const TIMESTAMP = "2025-02-16 07:10:19";  // Your current UTC time
+    // Updated Constants
+    const TIMESTAMP = "2025-02-16 09:17:08";  // Latest timestamp
     const USER = "AbdulManan-KB";             // Your login
-    const DEPLOYMENT_ID = "AKfycbw6Nyp5qTSIt9rilMrCoPXf1K6VCL_cn1ryJl5Ec0Iqd8ZPDclRlMg9e_E0dY7va6f6";
-    const GOOGLE_SHEETS_URL = `https://script.google.com/macros/s/${DEPLOYMENT_ID}/exec`;
-
-    console.log('Initializing with system timestamp:', TIMESTAMP);
-    console.log('Current user:', USER);
+    const WHATSAPP_NUMBER = "923460408190";   // Your WhatsApp number with country code
 
     // Get DOM elements
     const modal = document.getElementById('applicationModal');
@@ -15,12 +11,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelBtn = document.querySelector('.cancel-btn');
     const form = document.getElementById('loanApplicationForm');
 
-    // Debug log elements
-    console.log('Elements found:', {
-        modal: !!modal,
-        buttons: applyNowButtons.length,
-        form: !!form
-    });
+    // Format WhatsApp message in Urdu
+    function formatWhatsAppMessage(data) {
+        const loanRanges = {
+            '350001-500000': '3,50,001 - 5,00,000',
+            '500001-750000': '5,00,001 - 7,50,000',
+            '750001-1000000': '7,50,001 - 10,00,000'
+        };
+
+        const businessTypes = {
+            'retail': 'ریٹیل',
+            'wholesale': 'ہول سیل',
+            'manufacturing': 'مینوفیکچرنگ',
+            'services': 'سروسز',
+            'other': 'دیگر'
+        };
+
+        return encodeURIComponent(`*خوشحالی مائیکروفنانس بینک - نئی لون درخواست*\n
+───────────────
+📅 *تاریخ:* ${TIMESTAMP}\n
+👤 *درخواست گزار کا نام:* ${data.fullName}\n
+🆔 *شناختی کارڈ نمبر:* ${data.cnic}\n
+📱 *موبائل نمبر:* ${data.phone}\n
+💼 *کاروبار کی نوعیت:* ${businessTypes[data.businessType] || data.businessType}\n
+💰 *مطلوبہ رقم:* ${loanRanges[data.loanAmount] || data.loanAmount} روپے\n
+📍 *کاروبار کا مقام:* ${data.businessAddress}\n
+💵 *ماہانہ آمدنی:* ${data.monthlyIncome} روپے\n
+───────────────
+Submitted by: ${USER}`);
+    }
 
     // Message display function
     function showMessage(message, type = 'error') {
@@ -34,8 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         form.insertBefore(messageDiv, form.firstChild);
-        console.log(`Showing ${type} message:`, message);
-        
         setTimeout(() => messageDiv.remove(), 5000);
     }
 
@@ -44,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (modal) {
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
-            console.log('Modal opened');
         }
     }
 
@@ -57,11 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const message = form.querySelector('.message');
                 if (message) message.remove();
             }
-            console.log('Modal closed');
         }
     }
 
-    // Event Listeners for modal
+    // Event Listeners
     applyNowButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
@@ -80,87 +95,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form submission handler
     if (form) {
-        form.addEventListener('submit', async function(e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            console.log('Form submission started');
 
-            // Validate form
-            const formData = new FormData(form);
+            // Basic validation
+            const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
 
-            // Check required fields
-            for (let [key, value] of formData.entries()) {
-                if (!value.trim() && key !== 'terms') {
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
                     isValid = false;
-                    console.log(`Empty field: ${key}`);
+                    field.classList.add('invalid');
+                } else {
+                    field.classList.remove('invalid');
                 }
-            }
-
-            if (!formData.get('terms')) {
-                isValid = false;
-                console.log('Terms not accepted');
-            }
+            });
 
             if (!isValid) {
                 showMessage('براہ کرم تمام مطلوبہ فیلڈز کو پُر کریں۔');
                 return;
             }
 
-            const submitButton = form.querySelector('.submit-btn');
-            submitButton.disabled = true;
-            submitButton.textContent = 'درخواست جمع کر رہا ہے...';
-            form.classList.add('loading');
+            const formData = new FormData(form);
+            
+            const data = {
+                fullName: formData.get('fullName'),
+                cnic: formData.get('cnic'),
+                phone: formData.get('phone'),
+                businessType: formData.get('businessType'),
+                loanAmount: formData.get('loanAmount'),
+                businessAddress: formData.get('businessAddress'),
+                monthlyIncome: formData.get('monthlyIncome')
+            };
 
-            try {
-                const data = {
-                    submissionDate: TIMESTAMP,
-                    submittedBy: USER,
-                    fullName: formData.get('fullName'),
-                    cnic: formData.get('cnic'),
-                    phone: formData.get('phone'),
-                    businessType: formData.get('businessType'),
-                    loanAmount: formData.get('loanAmount'),
-                    businessAddress: formData.get('businessAddress'),
-                    monthlyIncome: formData.get('monthlyIncome')
-                };
-
-                console.log('Sending data:', data);
-
-                const response = await fetch(GOOGLE_SHEETS_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                console.log('Response status:', response.status);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const result = await response.json();
-                console.log('Server response:', result);
-
-                if (result.success) {
-                    showMessage('آپ کی درخواست کامیابی سے جمع کر لی گئی ہے۔', 'success');
-                    setTimeout(closeModal, 2000);
-                } else {
-                    throw new Error(result.message || 'Submission failed');
-                }
-
-            } catch (error) {
-                console.error('Form submission error:', error);
-                showMessage('درخواست جمع کرنے میں مسئلہ آ گیا ہے۔ براہ کرم دوبارہ کوشش کریں۔');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'درخواست جمع کریں';
-                form.classList.remove('loading');
-            }
+            // Open WhatsApp with formatted message
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${formatWhatsAppMessage(data)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success message and close modal
+            showMessage('درخواست کامیابی سے واٹس ایپ پر بھیج دی گئی ہے۔', 'success');
+            setTimeout(closeModal, 2000);
         });
 
-        // Input formatting
+        // Input formatting for CNIC
         const cnicInput = form.querySelector('#cnic');
         if (cnicInput) {
             cnicInput.addEventListener('input', (e) => {
@@ -175,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
+        // Input formatting for phone number
         const phoneInput = form.querySelector('#phone');
         if (phoneInput) {
             phoneInput.addEventListener('input', (e) => {
@@ -186,17 +164,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.target.value = value;
             });
         }
-
-        // Add error class to invalid fields
-        form.querySelectorAll('input, select, textarea').forEach(field => {
-            field.addEventListener('invalid', (e) => {
-                e.target.classList.add('invalid');
-            });
-            field.addEventListener('input', (e) => {
-                if (e.target.validity.valid) {
-                    e.target.classList.remove('invalid');
-                }
-            });
-        });
     }
 });
