@@ -175,7 +175,7 @@
         <section id="contact" class="contact-section">
             <div class="contact-info">
                 <!-- Update just the contact section in your HTML -->
-
+<section id="contact" class="contact-section">
     <div class="contact-info">
         <div class="contact-details">
         <div class="profile-image">
