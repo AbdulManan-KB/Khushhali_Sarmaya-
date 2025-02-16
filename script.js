@@ -1,22 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Constants updated with latest timestamp
-    const TIMESTAMP = "2025-02-16 06:17:39";  // Updated timestamp
+    const TIMESTAMP = "2025-02-16 06:50:36";  // Your current UTC time
     const USER = "AbdulManan-KB";             // Your login
     const DEPLOYMENT_ID = "AKfycbw6Nyp5qTSIt9rilMrCoPXf1K6VCL_cn1ryJl5Ec0Iqd8ZPDclRlMg9e_E0dY7va6f6";
     const GOOGLE_SHEETS_URL = `https://script.google.com/macros/s/${DEPLOYMENT_ID}/exec`;
 
-    console.log('Initializing with timestamp:', TIMESTAMP);
-
-    // Get DOM elements with both button classes
+    // Get DOM elements
     const modal = document.getElementById('applicationModal');
     const applyNowButtons = document.querySelectorAll('.apply-now, .cta-button');
     const closeModalBtn = document.querySelector('.close-modal');
     const cancelBtn = document.querySelector('.cancel-btn');
     const form = document.getElementById('loanApplicationForm');
 
-    console.log('Found apply buttons:', applyNowButtons.length);
-
-    // Message display function
+    // Message display function with improved visibility
     function showMessage(message, type = 'error') {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${type}-message`;
@@ -28,66 +24,90 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         form.insertBefore(messageDiv, form.firstChild);
+        
+        // Scroll to message
+        messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
         setTimeout(() => messageDiv.remove(), 5000);
     }
 
-    // Modal functions with animations
+    // Modal functions with scroll management
     function openModal() {
         if (modal) {
             modal.style.display = 'block';
-            modal.classList.add('modal-active');
             document.body.style.overflow = 'hidden';
+            // Reset form and scroll position
+            if (form) {
+                form.reset();
+                form.scrollTop = 0;
+            }
         }
     }
 
     function closeModal() {
         if (modal) {
-            modal.classList.remove('modal-active');
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                if (form) {
-                    form.reset();
-                    const message = form.querySelector('.message');
-                    if (message) message.remove();
-                }
-            }, 300);
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            if (form) {
+                form.reset();
+                const message = form.querySelector('.message');
+                if (message) message.remove();
+            }
         }
     }
 
-    // Event Listeners with logging
+    // Event Listeners
     applyNowButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log('Apply button clicked');
             openModal();
         });
     });
 
-    // Close modal buttons
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
     
-    // Close on outside click
+    // Close modal on outside click
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
     }
 
-    // Form submission handler
+    // Form submission handler with improved error handling
     if (form) {
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
+            // Validate form
             const submitButton = form.querySelector('.submit-btn');
-            submitButton.disabled = true;
-            submitButton.textContent = 'درخواست جمع کر رہا ہے...';
+            const formData = new FormData(form);
+            
+            // Check required fields
+            let isValid = true;
+            form.querySelectorAll('[required]').forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('invalid');
+                } else {
+                    field.classList.remove('invalid');
+                }
+            });
+
+            if (!isValid) {
+                showMessage('براہ کرم تمام مطلوبہ فیلڈز کو پُر کریں۔');
+                return;
+            }
+
+            // Disable submit button and show loading state
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'درخواست جمع کر رہا ہے...';
+            }
             form.classList.add('loading');
 
             try {
-                const formData = new FormData(form);
-                
+                // Prepare data
                 const data = {
                     submissionDate: TIMESTAMP,
                     submittedBy: USER,
@@ -99,6 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     businessAddress: formData.get('businessAddress'),
                     monthlyIncome: formData.get('monthlyIncome')
                 };
+
+                console.log('Submitting data:', data);
 
                 const response = await fetch(GOOGLE_SHEETS_URL, {
                     method: 'POST',
@@ -125,13 +147,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Form submission error:', error);
                 showMessage('درخواست جمع کرنے میں مسئلہ آ گیا ہے۔ براہ کرم دوبارہ کوشش کریں۔');
             } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'درخواست جمع کریں';
+                // Reset button state
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'درخواست جمع کریں';
+                }
                 form.classList.remove('loading');
             }
         });
 
-        // Input formatting
+        // Input formatting with improved validation
         const cnicInput = form.querySelector('#cnic');
         if (cnicInput) {
             cnicInput.addEventListener('input', (e) => {
