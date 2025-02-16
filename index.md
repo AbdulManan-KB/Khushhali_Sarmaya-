@@ -161,8 +161,8 @@
                     </div>
 
                     <div class="button-group">
-                        <button type="button" class="cancel-btn">منسوخ کریں</button>
-                        <button type="submit" class="submit-btn">درخواست جمع کریں</button>
+                        <button type="button" class="cta-button">منسوخ کریں</button>
+                        <button type="submit" class="cta-button">درخواست جمع کریں</button>
                     </div>
 
                     <!-- Hidden Fields -->
