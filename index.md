@@ -192,7 +192,7 @@
                 <span class="call-text">ابھی کال ملائیں</span>
             </a> <p><i class="fas fa-phone"></i> 0546-566577</p>
 
-                    
+             </section>       
                     
                     <p><i class="fas fa-globe"></i> نزد ہیلاں چونگی خوشحالی 
                     مائیکروفنانس بینک پھالیہ</p>
