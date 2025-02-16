@@ -179,7 +179,7 @@
     <div class="contact-info">
         <div class="contact-details">
         <div class="profile-image">
-                <img src="https://github.com/AbdulManan-KB.jpg" alt="AbdulManan-KB" class="profile-pic">
+                <img src="https://github.com/mypic.png" alt="AbdulManan-KB" class="profile-pic">
             </div>
             <div class="profile-details">
                 <h3 class="profile-name">عبدالمنان</h3>
