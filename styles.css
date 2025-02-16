@@ -204,18 +204,9 @@ body {
 }
 
 /* Buttons */
-.apply-now {
-    background-color: var(--primary-green);
-    color: var(--white);
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.apply-now:hover {
+.cta-button:hover {
     background-color: var(--secondary-blue);
 }
 
