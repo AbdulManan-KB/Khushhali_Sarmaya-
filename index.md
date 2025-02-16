@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html lang="ur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خوشحالی سرمایہ - کاروباری قرض</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
@@ -31,7 +32,6 @@
             </div>
         </section>
 
-        <!-- Features Section -->
         <section id="features" class="features-section">
             <div class="feature-cards">
                 <div class="feature-card">
@@ -49,7 +49,6 @@
             </div>
         </section>
 
-        <!-- Loan Details Section -->
         <section id="loan-details" class="loan-details-section">
             <h2>قرض کی تفصیلات</h2>
             <div class="loan-info">
@@ -71,7 +70,30 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <section id="collateral" class="collateral-section">
+            <h2>کولیٹرل (ضمانت) کی شرائط</h2>
+            <div class="collateral-types">
+                <div class="collateral-card">
+                    <h3>Unsecured Loan</h3>
+                    <p class="loan-range">3,50,001 سے 5,00,000 روپے تک</p>
+                    <ul>
+                        <li>آپ کے چیک</li>
+                        <li>ایک شخصی ضمانت درکار</li>
+                        <li>بڑی جائیداد یا سونا رکھوانے کی ضرورت نہیں</li>
+                    </ul>
+                </div>
+                <div class="collateral-card">
+                    <h3>Secured Loan</h3>
+                    <p class="loan-range">5,00,001 سے 10,00,000 روپے تک</p>
+                    <ul>
+                        <li>کاروباری اثاثہ جات کی ہائپوتیکیشن</li>
+                        <li>آپ کے چیک</li>
+                        <li>رجسٹرڈ یا ایکوئٹیبل مارگیج</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="contact-section">
             <div class="contact-info">
                 <h2>ہم سے رابطہ کریں</h2>
@@ -85,110 +107,8 @@
     </main>
 
     <footer class="footer">
-        <p>© 2025 خوشحالی مائیکرو فنانس بینک پھالیہ - تمام حقوق محفوظ ہیں</p>
+        <p>© 2025 خوشحالی مائیکروفنانس بینک - تمام حقوق محفوظ ہیں</p>
     </footer>
-
-    <<form id="loanApplicationForm">
-    <div class="form-group">
-        <label for="fullName">مکمل نام *</label>
-        <input type="text" id="fullName" name="fullName" required>
-    </div>
-
-    <div class="form-group">
-        <label for="cnic">شناختی کارڈ نمبر *</label>
-        <input type="text" id="cnic" name="cnic" placeholder="35201-1234567-1" required>
-    </div>
-
-    <div class="form-group">
-        <label for="phone">موبائل نمبر *</label>
-        <input type="tel" id="phone" name="phone" placeholder="0333-1234567" required>
-    </div>
-
-    <div class="form-group">
-        <label for="businessType">کاروبار کی نوعیت *</label>
-        <select id="businessType" name="businessType" required>
-            <option value="">منتخب کریں</option>
-            <option value="retail">ریٹیل</option>
-            <option value="wholesale">ہول سیل</option>
-            <option value="manufacturing">مینوفیکچرنگ</option>
-            <option value="services">سروسز</option>
-            <option value="other">دیگر</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="loanAmount">درکار قرض کی رقم *</label>
-        <select id="loanAmount" name="loanAmount" required>
-            <option value="">منتخب کریں</option>
-            <option value="350001-500000">3,50,001 - 5,00,000</option>
-            <option value="500001-750000">5,00,001 - 7,50,000</option>
-            <option value="750001-1000000">7,50,001 - 10,00,000</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="businessAddress">کاروبار کا پتہ *</label>
-        <textarea id="businessAddress" name="businessAddress" required></textarea>
-    </div>
-
-    <div class="form-group">
-        <label for="monthlyIncome">ماہانہ آمدنی *</label>
-        <input type="number" id="monthlyIncome" name="monthlyIncome" min="0" required>
-    </div>
-
-    <button type="submit">درخواست جمع کریں</button>
-</form>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">موبائل نمبر *</label>
-                    <input type="tel" id="phone" name="phone" placeholder="0333-1234567" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="businessType">کاروبار کی نوعیت *</label>
-                    <select id="businessType" name="businessType" required>
-                        <option value="">منتخب کریں</option>
-                        <option value="retail">ریٹیل</option>
-                        <option value="wholesale">ہول سیل</option>
-                        <option value="manufacturing">مینوفیکچرنگ</option>
-                        <option value="services">سروسز</option>
-                        <option value="other">دیگر</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="loanAmount">درکار قرض کی رقم *</label>
-                    <select id="loanAmount" name="loanAmount" required>
-                        <option value="">منتخب کریں</option>
-                        <option value="350001-500000">3,50,001 - 5,00,000</option>
-                        <option value="500001-750000">5,00,001 - 7,50,000</option>
-                        <option value="750001-1000000">7,50,001 - 10,00,000</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="businessAddress">کاروبار کا پتہ *</label>
-                    <textarea id="businessAddress" name="businessAddress" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="monthlyIncome">ماہانہ آمدنی *</label>
-                    <input type="number" id="monthlyIncome" name="monthlyIncome" min="0" required>
-                </div>
-
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">میں شرائط و ضوابط سے متفق ہوں *</label>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="submit-btn">درخواست جمع کریں</button>
-                    <button type="button" class="cancel-btn">منسوخ کریں</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
