@@ -1,23 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Constants updated with your latest timestamp
-    const TIMESTAMP = "2025-02-16 06:04:43";  // Your current UTC time
+    // Constants updated with latest timestamp
+    const TIMESTAMP = "2025-02-16 06:17:39";  // Updated timestamp
     const USER = "AbdulManan-KB";             // Your login
     const DEPLOYMENT_ID = "AKfycbw6Nyp5qTSIt9rilMrCoPXf1K6VCL_cn1ryJl5Ec0Iqd8ZPDclRlMg9e_E0dY7va6f6";
     const GOOGLE_SHEETS_URL = `https://script.google.com/macros/s/${DEPLOYMENT_ID}/exec`;
 
-    // Get DOM elements
+    console.log('Initializing with timestamp:', TIMESTAMP);
+
+    // Get DOM elements with both button classes
     const modal = document.getElementById('applicationModal');
-    const applyNowButtons = document.querySelectorAll('.apply-now');
-    const closeModal = document.querySelector('.close-modal');
+    const applyNowButtons = document.querySelectorAll('.apply-now, .cta-button');
+    const closeModalBtn = document.querySelector('.close-modal');
     const cancelBtn = document.querySelector('.cancel-btn');
     const form = document.getElementById('loanApplicationForm');
 
-    // Debug log elements
-    console.log('Elements found:', {
-        modal: !!modal,
-        buttons: applyNowButtons.length,
-        form: !!form
-    });
+    console.log('Found apply buttons:', applyNowButtons.length);
 
     // Message display function
     function showMessage(message, type = 'error') {
@@ -31,43 +28,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         form.insertBefore(messageDiv, form.firstChild);
-        console.log(`Showing ${type} message:`, message);
-        
         setTimeout(() => messageDiv.remove(), 5000);
     }
 
-    // Modal functions
+    // Modal functions with animations
     function openModal() {
         if (modal) {
             modal.style.display = 'block';
+            modal.classList.add('modal-active');
             document.body.style.overflow = 'hidden';
-            console.log('Modal opened');
         }
     }
 
     function closeModal() {
         if (modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            if (form) {
-                form.reset();
-                const message = form.querySelector('.message');
-                if (message) message.remove();
-            }
-            console.log('Modal closed');
+            modal.classList.remove('modal-active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                if (form) {
+                    form.reset();
+                    const message = form.querySelector('.message');
+                    if (message) message.remove();
+                }
+            }, 300);
         }
     }
 
-    // Event Listeners
+    // Event Listeners with logging
     applyNowButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
+            console.log('Apply button clicked');
             openModal();
         });
     });
 
-    if (closeModal) closeModal.addEventListener('click', closeModal);
+    // Close modal buttons
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+    
+    // Close on outside click
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
@@ -78,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (form) {
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            console.log('Form submission started');
 
             const submitButton = form.querySelector('.submit-btn');
             submitButton.disabled = true;
@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 const formData = new FormData(form);
                 
-                // Prepare data with system timestamp
                 const data = {
                     submissionDate: TIMESTAMP,
                     submittedBy: USER,
@@ -101,8 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     monthlyIncome: formData.get('monthlyIncome')
                 };
 
-                console.log('Sending data:', data);
-
                 const response = await fetch(GOOGLE_SHEETS_URL, {
                     method: 'POST',
                     headers: {
@@ -111,14 +108,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     body: JSON.stringify(data)
                 });
 
-                console.log('Response status:', response.status);
-
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
                 const result = await response.json();
-                console.log('Server response:', result);
 
                 if (result.success) {
                     showMessage('آپ کی درخواست کامیابی سے جمع کر لی گئی ہے۔', 'success');
