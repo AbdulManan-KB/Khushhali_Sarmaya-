@@ -3,9 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خوشحالی سرمایہ - کاروباری قرض</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
@@ -31,6 +31,7 @@
             </div>
         </section>
 
+        <!-- Features Section -->
         <section id="features" class="features-section">
             <div class="feature-cards">
                 <div class="feature-card">
@@ -48,6 +49,7 @@
             </div>
         </section>
 
+        <!-- Loan Details Section -->
         <section id="loan-details" class="loan-details-section">
             <h2>قرض کی تفصیلات</h2>
             <div class="loan-info">
@@ -69,30 +71,7 @@
             </div>
         </section>
 
-        <section id="collateral" class="collateral-section">
-            <h2>کولیٹرل (ضمانت) کی شرائط</h2>
-            <div class="collateral-types">
-                <div class="collateral-card">
-                    <h3>Unsecured Loan</h3>
-                    <p class="loan-range">3,50,001 سے 5,00,000 روپے تک</p>
-                    <ul>
-                        <li>آپ کے چیک</li>
-                        <li>ایک شخصی ضمانت درکار</li>
-                        <li>بڑی جائیداد یا سونا رکھوانے کی ضرورت نہیں</li>
-                    </ul>
-                </div>
-                <div class="collateral-card">
-                    <h3>Secured Loan</h3>
-                    <p class="loan-range">5,00,001 سے 10,00,000 روپے تک</p>
-                    <ul>
-                        <li>کاروباری اثاثہ جات کی ہائپوتیکیشن</li>
-                        <li>آپ کے چیک</li>
-                        <li>رجسٹرڈ یا ایکوئٹیبل مارگیج</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
+        <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="contact-info">
                 <h2>ہم سے رابطہ کریں</h2>
@@ -109,7 +88,7 @@
         <p>© 2025 خوشحالی مائیکروفنانس بینک - تمام حقوق محفوظ ہیں</p>
     </footer>
 
-    <!-- Application Modal -->
+    <!-- Modal Form -->
     <div id="applicationModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -122,12 +101,12 @@
 
                 <div class="form-group">
                     <label for="cnic">شناختی کارڈ نمبر *</label>
-                    <input type="text" id="cnic" name="cnic" pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" placeholder="35201-1234567-1" required>
+                    <input type="text" id="cnic" name="cnic" placeholder="35201-1234567-1" required>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">موبائل نمبر *</label>
-                    <input type="tel" id="phone" name="phone" pattern="[0-9]{4}-[0-9]{7}" placeholder="0333-1234567" required>
+                    <input type="tel" id="phone" name="phone" placeholder="0333-1234567" required>
                 </div>
 
                 <div class="form-group">
