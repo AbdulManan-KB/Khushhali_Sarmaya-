@@ -13,21 +13,21 @@
     <meta name="theme-color" content="#4CAF50">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
+    class="header">
+    <nav class="navbar">
+        <div class="header-content">
+            <h2 class="site-title">خوشحالی مائیکروفنانس - کاروباری قرض</h2>
             <div class="logo">
-                <img src="logo.png" alt="خوشحالی بینک" class="logo-img"> <h2>خوشحالی سرمایہ، کاروباری قرض</h2>
+                <img src="logo.png" alt="خوشحالی بینک" class="logo-img">
             </div>
-            <div class="nav-links">
-                <a href="#home">ہوم</a>
-                <a href="#features">خصوصیات</a>
-                <a href="#loan-details">قرض کی تفصیلات</a>
-                <a href="#collateral">ضمانت</a>
-                <a href="#contact" 
-            </div>
-        </nav>
-    </header>
+        </div>
+        <div class="nav-links">
+            <a href="#home">ہوم</a>
+            <a href="#features">خصوصیات</a>
+            <a href="#loan-details">قرض کی تفصیلات</a>
+            <a href="#contact" class="cta-button">رابطہ کریں</a>
+        </div>
+    </nav>
 
     <main>
         <section id="hero" class="hero-section">
