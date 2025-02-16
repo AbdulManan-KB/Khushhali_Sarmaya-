@@ -177,17 +177,16 @@
                 <!-- Update just the contact section in your HTML -->
 <section id="contact" class="contact-section">
     <div class="contact-info">
-        <h2>ہم سے رابطہ کریں</h2>
         <div class="contact-details">
             <a href="tel:+923460408190" class="phone-button">
                 <i class="fas fa-phone"></i>
                 0346-0408190 
-                <span class="call-text">کال کریں</span>
+                <span class="call-text">ابھی کال ملائیں</span>
             </a>
             <p><i class="fas fa-globe"></i> خوشحالی مائیکروفنانس بینک</p>
             <p><i class="fas fa-clock"></i> پیر تا ہفتہ (صبح 9 بجے سے شام 5 بجے تک)</p>
         </div>
-        <button class="apply-now">ابھی اپلائی کریں</button>
+
     </div>
 </section>
                     <p><i class="fas fa-phone"></i> 0546-566577</p>
