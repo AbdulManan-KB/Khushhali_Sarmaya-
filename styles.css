@@ -1,60 +1,93 @@
-/* General Styles */
+/* CSS Variables */
 :root {
     --primary-color: #4CAF50;
+    --primary-hover: #45a049;
     --danger-color: #f44336;
+    --danger-hover: #da190b;
     --text-color: #333;
     --light-gray: #f5f5f5;
     --border-color: #ddd;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --max-width: 1200px;
+    --transition: all 0.3s ease;
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Noto Nastaliq Urdu', serif;
-    margin: 0;
-    padding: 0;
     direction: rtl;
     background-color: var(--light-gray);
     line-height: 1.6;
+    color: var(--text-color);
 }
 
-/* Header Styles */
+/* Header & Navigation */
 .header {
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 1rem;
+    box-shadow: var(--shadow-sm);
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    padding: 1rem;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1rem;
 }
 
 .logo-img {
     height: 50px;
+    transition: var(--transition);
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
     display: flex;
-    align-items: center;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.nav-links .cta-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+}
+
+.nav-links .cta-button:hover {
+    background-color: var(--primary-hover);
+    color: white;
 }
 
 /* Hero Section */
@@ -76,40 +109,47 @@ body {
 .hero-content h1 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero-text {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-/* Feature Section */
+/* Feature Cards */
 .features-section {
     padding: 4rem 2rem;
+    background-color: white;
+}
+
+.features-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 .feature-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .feature-card {
     background: white;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-md);
     text-align: center;
-    flex: 1;
-    min-width: 250px;
-    transition: transform 0.3s ease;
+    transition: var(--transition);
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .feature-card i {
@@ -118,36 +158,71 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Loan Details Section */
+/* Loan Details */
 .loan-details-section {
+    padding: 4rem 2rem;
+    background-color: var(--light-gray);
+}
+
+.loan-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Collateral Section */
+.collateral-section {
     padding: 4rem 2rem;
     background-color: white;
 }
 
-.loan-details-section h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.loan-info {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
+.collateral-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
 }
 
-.info-card {
-    text-align: center;
-    flex: 1;
-    min-width: 200px;
+.collateral-card {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
 }
 
-.info-card i {
-    font-size: 2rem;
+.collateral-card ul {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.collateral-card li {
+    margin: 0.5rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+}
+
+.collateral-card li:before {
+    content: "✓";
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    position: absolute;
+    right: 0;
 }
 
 /* Modal Styles */
@@ -171,7 +246,7 @@ body {
     width: 90%;
     max-width: 600px;
     position: relative;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-lg);
 }
 
 .modal-header {
@@ -187,7 +262,7 @@ body {
     font-size: 2rem;
     cursor: pointer;
     color: #666;
-    transition: color 0.3s ease;
+    transition: var(--transition);
 }
 
 .close-modal:hover {
@@ -203,7 +278,6 @@ label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
-    color: var(--text-color);
 }
 
 input, select, textarea {
@@ -213,7 +287,7 @@ input, select, textarea {
     border-radius: 4px;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: var(--transition);
 }
 
 input:focus, select:focus, textarea:focus {
@@ -227,7 +301,21 @@ textarea {
     resize: vertical;
 }
 
+.helper-text {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
 /* Button Styles */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
 .apply-now, .submit-btn {
     background-color: var(--primary-color);
     color: white;
@@ -237,11 +325,12 @@ textarea {
     cursor: pointer;
     font-family: inherit;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
 }
 
 .apply-now:hover, .submit-btn:hover {
-    background-color: #45a049;
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
 .cancel-btn {
@@ -253,30 +342,23 @@ textarea {
     cursor: pointer;
     font-family: inherit;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
 }
 
 .cancel-btn:hover {
-    background-color: #da190b;
-}
-
-.button-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    margin-top: 2rem;
+    background-color: var(--danger-hover);
 }
 
 /* Contact Section */
 .contact-section {
     padding: 4rem 2rem;
     background-color: var(--light-gray);
-    text-align: center;
 }
 
 .contact-info {
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .contact-details {
@@ -318,10 +400,6 @@ textarea {
         padding: 1rem;
     }
     
-    .feature-card, .info-card {
-        min-width: 100%;
-    }
-    
     .button-group {
         flex-direction: column;
     }
@@ -329,4 +407,15 @@ textarea {
     .button-group button {
         width: 100%;
     }
-        }
+    
+    .feature-cards, .loan-info, .collateral-types {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .modal, .apply-now, .nav-links {
+        display: none !important;
+    }
+    }
