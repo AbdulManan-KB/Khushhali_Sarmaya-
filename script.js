@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const applyButtons = document.querySelectorAll('.apply-now');
     console.log('Number of apply buttons found:', applyButtons.length);
     // ... rest of your code
-});document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
+}) 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -23,7 +22,91 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all necessary elements
+    const modal = document.getElementById('applicationModal');
+    const applyNowButtons = document.querySelectorAll('.apply-now');
+    const closeModal = document.querySelector('.close-modal');
+    const cancelBtn = document.querySelector('.cancel-btn');
+    const form = document.getElementById('loanApplicationForm');
 
+    // Show modal when "Apply Now" buttons are clicked
+    applyNowButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close modal functions
+    function closeModalFunction() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close modal when clicking (X) button
+    closeModal.addEventListener('click', closeModalFunction);
+
+    // Close modal when clicking cancel button
+    cancelBtn.addEventListener('click', closeModalFunction);
+
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModalFunction();
+        }
+    });
+
+    // Form submission
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        form.classList.add('loading');
+        const submitButton = form.querySelector('.submit-btn');
+        submitButton.disabled = true;
+
+        // Get form data
+        const formData = new FormData(form);
+        const data = {
+            submissionDate: "2025-02-16 03:47:55",
+            submittedBy: "AbdulManan-KB",
+            ...Object.fromEntries(formData.entries())
+        };
+
+        try {
+            const response = await fetch(GOOGLE_SHEETS_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'success-message';
+            successMessage.textContent = 'آپ کی درخواست کامیابی سے جمع کر لی گئی ہے۔';
+            form.appendChild(successMessage);
+
+            // Close modal after 2 seconds
+            setTimeout(() => {
+                closeModalFunction();
+                form.reset();
+                successMessage.remove();
+                submitButton.disabled = false;
+                form.classList.remove('loading');
+            }, 2000);
+
+        } catch (error) {
+            console.error('Error:', error);
+            submitButton.disabled = false;
+            form.classList.remove('loading');
+        }
+    });
+});
     // Apply Now button click handler
     document.querySelectorAll('.apply-now').forEach(button => {
         button.addEventListener('click', function() {
