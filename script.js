@@ -1,42 +1,97 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    // Constants
+    const TIMESTAMP = "2025-02-16 10:14:38";
+    const USER = "AbdulManan-KB";
+    const WHATSAPP_NUMBER = "923460408190";
+
+    // Get DOM elements
+    const modal = document.getElementById('applicationModal');
+    const applyButtons = document.querySelectorAll('.apply-now');
+    const closeButton = document.querySelector('.close-modal');
+    const cancelButton = document.querySelector('.cancel-btn');
+    const form = document.getElementById('loanApplicationForm');
+
+    // Modal functions
+    function openModal() {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        if (form) form.reset();
+    }
+
+    // Event listeners for all apply now buttons
+    applyButtons.forEach(button => {
+        button.addEventListener('click', openModal);
+    });
+
+    closeButton.addEventListener('click', closeModal);
+    cancelButton.addEventListener('click', closeModal);
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    // Format CNIC
+    const cnicInput = document.getElementById('cnic');
+    cnicInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 13) value = value.slice(0, 13);
+        if (value.length >= 12) {
+            value = value.slice(0, 5) + '-' + value.slice(5, 12) + '-' + value.slice(12);
+        } else if (value.length >= 5) {
+            value = value.slice(0, 5) + '-' + value.slice(5);
+        }
+        e.target.value = value;
+    });
+
+    // Format phone
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 11) value = value.slice(0, 11);
+        if (value.length >= 4) {
+            value = value.slice(0, 4) + '-' + value.slice(4);
+        }
+        e.target.value = value;
+    });
+
+    // Handle form submission
+    if (form) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Apply Now button click handler
-    document.querySelectorAll('.apply-now').forEach(button => {
-        button.addEventListener('click', function() {
-            // You can replace this with your actual application form URL
-            window.location.href = '#contact';
-        });
-    });
-
-    // Add animation to feature cards on scroll
-    const featureCards = document.querySelectorAll('.feature-card');
-    
-    const observerOptions = {
-        threshold: 0.2
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+            
+            // Get form data
+            const formData = new FormData(form);
+            
+            // Format currency
+            function formatCurrency(amount) {
+                return new Intl.NumberFormat('ur-PK').format(amount);
             }
-        });
-    }, observerOptions);
 
-    featureCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(card);
-    });
+            // Create WhatsApp message
+            const message = encodeURIComponent(`*خوشحالی مائیکروفنانس - نئی لون درخواست*\n
+───────────────
+📅 تاریخ: ${TIMESTAMP}\n
+👤 درخواست گزار کا نام: ${formData.get('fullName')}
+🆔 شناختی کارڈ نمبر: ${formData.get('cnic')}
+📱 فون نمبر: ${formData.get('phone')}
+💼 کاروبار کی قسم: ${formData.get('businessType')}
+💰 قرض کی رقم: ${formatCurrency(formData.get('loanAmount'))} روپے
+📍 کاروباری پتہ: ${formData.get('businessAddress')}
+💵 ماہانہ آمدنی: ${formatCurrency(formData.get('monthlyIncome'))} روپے
+───────────────
+Submitted by: ${USER}`);
+
+            // Open WhatsApp
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+            
+            // Close modal
+            closeModal();
+        });
+    }
 });
