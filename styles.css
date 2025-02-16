@@ -5,14 +5,8 @@
     --light-green: #98FB98;
     --white: #ffffff;
     --black: #000000;
-    --error-red: #f44336;
-    --success-green: #4CAF50;
-    --gray-light: #f5f5f5;
-    --gray-medium: #e0e0e0;
-    --gray-dark: #666;
 }
 
-/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -22,10 +16,10 @@
 body {
     font-family: 'Noto Nastaliq Urdu', serif;
     line-height: 1.6;
-    background-color: var(--gray-light);
+    background-color: #f5f5f5;
 }
 
-/* Header and Navigation */
+/* Header Styles */
 .header {
     background-color: var(--white);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -51,7 +45,7 @@ body {
 .nav-links a {
     color: var(--primary-blue);
     text-decoration: none;
-    margin-right: 2rem;
+    margin-left: 2rem;
     font-weight: bold;
     transition: color 0.3s ease;
 }
@@ -60,229 +54,190 @@ body {
     color: var(--primary-green);
 }
 
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    overflow-y: auto;
-    padding: 20px 0;
+.cta-button {
+    background-color: var(--primary-green);
+    color: var(--white) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
 }
 
-.modal-content {
-    background-color: var(--white);
-    margin: 20px auto;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    position: relative;
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    padding: 8rem 5% 4rem;
+    color: var(--white);
+    text-align: center;
 }
 
-.close-modal {
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--gray-dark);
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* Form Styles */
-.application-form {
-    margin-top: 2rem;
-}
-
-.form-group {
+.hero-content h1 {
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+.hero-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--gray-medium);
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: inherit;
+/* Features Section */
+.features-section {
+    padding: 4rem 5%;
+    background-color: var(--white);
 }
 
-.form-group textarea {
-    height: 100px;
-    resize: vertical;
-}
-
-.checkbox-group {
+.feature-cards {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.checkbox-group input[type="checkbox"] {
-    width: auto;
+.feature-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    transition: transform 0.3s ease;
 }
 
-/* Button Styles */
-.apply-now,
-.submit-btn,
-.cancel-btn {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: all 0.3s ease;
+.feature-card:hover {
+    transform: translateY(-5px);
 }
 
-.apply-now,
-.submit-btn {
+.feature-card i {
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+/* Loan Details Section */
+.loan-details-section {
+    padding: 4rem 5%;
+    background-color: #f9f9f9;
+}
+
+.loan-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.info-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Collateral Section */
+.collateral-section {
+    padding: 4rem 5%;
+    background-color: var(--white);
+}
+
+.collateral-types {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.collateral-card {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 300px;
+}
+
+.collateral-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.collateral-card ul li {
+    margin: 0.5rem 0;
+    padding-right: 1.5rem;
+    position: relative;
+}
+
+.collateral-card ul li::before {
+    content: "✔";
+    color: var(--primary-green);
+    position: absolute;
+    right: 0;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 4rem 5%;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    color: var(--white);
+    text-align: center;
+}
+
+.contact-details {
+    margin: 2rem 0;
+}
+
+.contact-details p {
+    margin: 1rem 0;
+}
+
+/* Buttons */
+.apply-now {
     background-color: var(--primary-green);
     color: var(--white);
-}
-
-.cancel-btn {
-    background-color: var(--gray-light);
-    color: var(--gray-dark);
-}
-
-.form-actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-/* Message Styles */
-.message {
-    padding: 1rem;
+    border: none;
+    padding: 1rem 2rem;
     border-radius: 5px;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.apply-now:hover {
+    background-color: var(--secondary-blue);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--black);
+    color: var(--white);
     text-align: center;
-    font-weight: bold;
-}
-
-.success-message {
-    background-color: var(--success-green);
-    color: var(--white);
-}
-
-.error-message {
-    background-color: var(--error-red);
-    color: var(--white);
-}
-
-/* Loading State */
-.loading {
-    position: relative;
-    pointer-events: none;
-}
-
-.loading::after {
-    content: '';
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    border: 3px solid var(--gray-light);
-    border-top: 3px solid var(--primary-green);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    z-index: 1001;
-}
-
-@keyframes spin {
-    to { transform: translate(-50%, -50%) rotate(360deg); }
+    padding: 1rem 5%;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .modal-content {
-        margin: 10px auto;
-        padding: 1.5rem;
-        width: 95%;
-    }
-
-    .form-actions {
-        flex-direction: column;
-    }
-
-    .form-actions button {
-        width: 100%;
-    }
-
     .nav-links {
         display: none;
     }
-}
-
-/* Additional Styles */
-.hero-section {
-    padding-top: 80px;
-    text-align: center;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
-    color: var(--white);
-    padding: 8rem 2rem 4rem;
-}
-
-.features-section,
-.loan-details-section {
-    padding: 4rem 2rem;
-    background: var(--white);
-}
-
-.contact-section {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
-    color: var(--white);
-    padding: 4rem 2rem;
-    text-align: center;
-}
-/* Add to your existing CSS */
-.invalid {
-    border-color: var(--error-red) !important;
-    background-color: rgba(244, 67, 54, 0.1);
-}
-
-.invalid:focus {
-    outline-color: var(--error-red);
-    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
-}
-
-/* Loading state improvements */
-.loading .submit-btn {
-    position: relative;
-    padding-right: 2.5rem;
-}
-
-.loading .submit-btn::after {
-    content: '';
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1rem;
-    height: 1rem;
-    border: 2px solid white;
-    border-radius: 50%;
-    border-top-color: transparent;
-    animation: spin 1s linear infinite;
+    
+    .hero-content h1 {
+        font-size: 2rem;
     }
-.footer {
-    background: var(--black);
-    color: var(--white);
-    text-align: center;
-    padding: 1rem;
+    
+    .feature-card, .info-card, .collateral-card {
+        min-width: 100%;
     }
+}
