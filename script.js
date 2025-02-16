@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Constants
-    const TIMESTAMP = "2025-02-16 10:14:38";
+    const TIMESTAMP = "2025-02-16 10:21:23";
     const USER = "AbdulManan-KB";
     const WHATSAPP_NUMBER = "923460408190";
 
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 🆔 شناختی کارڈ نمبر: ${formData.get('cnic')}
 📱 فون نمبر: ${formData.get('phone')}
 💼 کاروبار کی قسم: ${formData.get('businessType')}
-💰 قرض کی رقم: ${formatCurrency(formData.get('loanAmount'))} روپے
+💰 قرض کی رقم: ${formData.get('loanAmount')}
 📍 کاروباری پتہ: ${formData.get('businessAddress')}
 💵 ماہانہ آمدنی: ${formatCurrency(formData.get('monthlyIncome'))} روپے
 ───────────────
