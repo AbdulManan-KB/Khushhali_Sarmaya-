@@ -250,7 +250,36 @@ body {
     padding: 4rem 2rem;
     text-align: center;
 }
+/* Add to your existing CSS */
+.invalid {
+    border-color: var(--error-red) !important;
+    background-color: rgba(244, 67, 54, 0.1);
+}
 
+.invalid:focus {
+    outline-color: var(--error-red);
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
+}
+
+/* Loading state improvements */
+.loading .submit-btn {
+    position: relative;
+    padding-right: 2.5rem;
+}
+
+.loading .submit-btn::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    }
 .footer {
     background: var(--black);
     color: var(--white);
