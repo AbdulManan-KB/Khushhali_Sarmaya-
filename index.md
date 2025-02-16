@@ -85,23 +85,59 @@
     </main>
 
     <footer class="footer">
-        <p>© 2025 خوشحالی مائیکروفنانس بینک - تمام حقوق محفوظ ہیں</p>
+        <p>© 2025 خوشحالی مائیکرو فنانس بینک پھالیہ - تمام حقوق محفوظ ہیں</p>
     </footer>
 
-    <!-- Modal Form -->
-    <div id="applicationModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>کاروباری قرض کے لیے درخواست</h2>
-            <form id="loanApplicationForm" class="application-form">
-                <div class="form-group">
-                    <label for="fullName">مکمل نام *</label>
-                    <input type="text" id="fullName" name="fullName" required>
-                </div>
+    <<form id="loanApplicationForm">
+    <div class="form-group">
+        <label for="fullName">مکمل نام *</label>
+        <input type="text" id="fullName" name="fullName" required>
+    </div>
 
-                <div class="form-group">
-                    <label for="cnic">شناختی کارڈ نمبر *</label>
-                    <input type="text" id="cnic" name="cnic" placeholder="35201-1234567-1" required>
+    <div class="form-group">
+        <label for="cnic">شناختی کارڈ نمبر *</label>
+        <input type="text" id="cnic" name="cnic" placeholder="35201-1234567-1" required>
+    </div>
+
+    <div class="form-group">
+        <label for="phone">موبائل نمبر *</label>
+        <input type="tel" id="phone" name="phone" placeholder="0333-1234567" required>
+    </div>
+
+    <div class="form-group">
+        <label for="businessType">کاروبار کی نوعیت *</label>
+        <select id="businessType" name="businessType" required>
+            <option value="">منتخب کریں</option>
+            <option value="retail">ریٹیل</option>
+            <option value="wholesale">ہول سیل</option>
+            <option value="manufacturing">مینوفیکچرنگ</option>
+            <option value="services">سروسز</option>
+            <option value="other">دیگر</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="loanAmount">درکار قرض کی رقم *</label>
+        <select id="loanAmount" name="loanAmount" required>
+            <option value="">منتخب کریں</option>
+            <option value="350001-500000">3,50,001 - 5,00,000</option>
+            <option value="500001-750000">5,00,001 - 7,50,000</option>
+            <option value="750001-1000000">7,50,001 - 10,00,000</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="businessAddress">کاروبار کا پتہ *</label>
+        <textarea id="businessAddress" name="businessAddress" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="monthlyIncome">ماہانہ آمدنی *</label>
+        <input type="number" id="monthlyIncome" name="monthlyIncome" min="0" required>
+    </div>
+
+    <button type="submit">درخواست جمع کریں</button>
+</form>
                 </div>
 
                 <div class="form-group">
