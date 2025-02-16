@@ -178,6 +178,14 @@
 
     <div class="contact-info">
         <div class="contact-details">
+        <div class="profile-image">
+                <img src="https://github.com/AbdulManan-KB.png" alt="AbdulManan-KB" class="profile-pic">
+            </div>
+            <div class="profile-details">
+                <h3 class="profile-name">عبدالمنان</h3>
+                <p class="profile-title">لون آفیسر</p>
+            </div>
+        </div>
             <a href="tel:+923460408190" class="cta-button">
                 <i class="fas fa-phone"></i>
                 0346-0408190 
