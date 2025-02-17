@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خوشحالی سرمایہ - کاروباری قرض</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
-            <div class="header-content">
-                <h2 class="site-title">خوشحالی مائیکروفنانس - کاروباری قرض</h2>
-                <div class="logo">
-                    <img src="logo.png" alt="خوشحالی بینک" class="logo-img">
-                </div>
+            <div class="logo">
+                <img src="logo.png" alt="خوشحالی بینک" class="logo-img">
             </div>
             <div class="nav-links">
                 <a href="#home">ہوم</a>
@@ -25,148 +22,146 @@
             </div>
         </nav>
     </header>
-<!-- Modal Form -->
-<div id="applicationModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2>قرض کی درخواست فارم</h2>
-            <span class="close-modal">&times;</span>
-        </div>
 
-        <form id="loanApplicationForm">
-            <div class="form-group">
-                <label for="fullName">مکمل نام *</label>
-                <input type="text" id="fullName" name="fullName" required>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>خوشحالی سرمایہ – اپنے خوابوں کو حقیقت میں بدلیں!</h1>
+                <p class="hero-text">اگر آپ اپنے کاروبار کو بڑھانے کے زبردست آئیڈیاز رکھتے ہیں، لیکن سرمایہ کی کمی رکاوٹ بنی ہوئی ہے، تو گھبرائیں نہیں!</p>
+                <button class="apply-now" onclick="openModal()">ابھی اپلائی کریں</button>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="cnic">شناختی کارڈ نمبر *</label>
-                <input type="text" id="cnic" name="cnic" pattern="\d{5}-\d{7}-\d{1}" placeholder="35201-1234567-1" required>
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>بڑا آرڈر ملا لیکن وسائل کم ہیں؟</h3>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-store"></i>
+                    <h3>نیا کاروبار شروع کرنا چاہتے ہیں؟</h3>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>اپنے حریف سے آگے نکلنا چاہتے ہیں؟</h3>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="phone">موبائل نمبر *</label>
-                <input type="text" id="phone" name="phone" pattern="\d{4}-\d{7}" placeholder="0346-0408190" required>
+        <!-- Loan Details Section -->
+        <section id="loan-details" class="loan-details-section">
+            <h2>قرض کی تفصیلات</h2>
+            <div class="loan-info">
+                <div class="info-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>رقم</h3>
+                    <p>3,50,001 سے 10,00,000 روپے تک</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>واپسی کی مدت</h3>
+                    <p>6 سے 36 ماہ</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-user"></i>
+                    <h3>عمر کی حد</h3>
+                    <p>22 سال سے 60 سال تک</p>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group">
-                <label for="businessType">کاروبار کی قسم *</label>
-                <select id="businessType" name="businessType" required>
-                    <option value="">Select Business Type</option>
-                    <option value="Retail">Retail ریٹیل</option>
-                    <option value="Wholesale">Wholesale ہول سیل</option>
-                    <option value="Service">Service سروس</option>
-                    <option value="Manufacturing">Manufacturing مینوفیکچرنگ</option>
-                    <option value="Agriculture">Agriculture زراعت</option>
-                    <option value="Other">Other دیگر</option>
-                </select>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-info">
+                <h2>ہم سے رابطہ کریں</h2>
+                <div class="contact-details">
+                    <p><i class="fas fa-phone"></i> 0346-0408190</p>
+                    <p><i class="fas fa-globe"></i> Khushhali Microfinance Bank</p>
+                </div>
+                <button class="apply-now" onclick="openModal()">ابھی اپلائی کریں</button>
             </div>
-
-            <div class="form-group">
-                <label for="loanAmount">قرض کی رقم *</label>
-                <select id="loanAmount" name="loanAmount" required>
-                    <option value="">Select Loan Amount</option>
-                    <option value="350001-500000">350,001 - 500,000</option>
-                    <option value="500001-750000">500,001 - 750,000</option>
-                    <option value="750001-1000000">750,001 - 1,000,000</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="businessAddress">کاروباری پتہ *</label>
-                <textarea id="businessAddress" name="businessAddress" rows="3" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="monthlyIncome">ماہانہ آمدنی *</label>
-                <input type="number" id="monthlyIncome" name="monthlyIncome" min="0" placeholder="50000" required>
-                <small class="helper-text">روپے میں درج کریں</small>
-            </div>
-
-            <div class="button-group">
-                <button type="button" class="cancel-button" onclick="closeModal()">منسوخ کریں</button>
-                <button type="submit" class="submit-button">درخواست جمع کریں</button>
-            </div>
-
-            <!-- Hidden Fields -->
-            <input type="hidden" name="submissionDate" value="2025-02-16 17:14:37">
-            <input type="hidden" name="submittedBy" value="AbdulManan-KB">
-        </form>
-    </div>
-</div>
-<a href="https://wa.me/923460408190" class="whatsapp-button" target="_blank">
-    <img src="whatsapp-icon.png" alt="WhatsApp">
-</a>
-
-<style>
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.whatsapp-button img {
-    width: 40px;
-    height: 40px;
-}
-</style>
-
-    <!-- Your other sections here -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="contact-info">
-            
-        
-<div class="profile-section">
-    <div class="profile-image">
-        <!-- Using a direct GitHub avatar URL -->
-        <img src="https://avatars.githubusercontent.com/u/AbdulManan-KB?size=200" 
-             alt="عبدالمنان" 
-             class="profile-pic"
-             onerror="this.src='profile.jpg'">
-    </div>
-    <div class="profile-details">
-        <h3 class="profile-name">عبدالمنان</h3>
-        <p class="profile-title">لون آفیسر</p>
-    </div>
-</div>
-
-            <!-- Contact Details -->
-            <div class="contact-details">
-                <a href="tel:+923460408190" class="phone-button">
-                    <i class="fas fa-phone"></i>
-                    0346-0408190
-                    <span class="call-text">ابھی کال ملائیں</span>
-                </a>
-                
-                <p class="secondary-phone">
-                    <i class="fas fa-phone"></i>
-                    0546-566577
-                </p>
-                
-                <p class="address">
-                    <i class="fas fa-location-dot"></i>
-                    نزد ہیلاں چونگی خوشحالی مائیکروفنانس بینک پھالیہ
-                </p>
-                
-                <p class="working-hours">
-                    <i class="fas fa-clock"></i>
-                    پیر تا ہفتہ (صبح 9 بجے سے شام 5 بجے تک)
-                </p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
         <p>© 2025 خوشحالی مائیکروفنانس بینک - تمام حقوق محفوظ ہیں</p>
     </footer>
+
+    <!-- Loan Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>کاروباری قرض کے لیے درخواست</h2>
+            <form id="loanApplicationForm" action="https://script.google.com/macros/s/AKfycby7shrEnKpM3Mepq8zjOaUFDQ9t7F8FfS6bDIdNXdnuEvKVo2aii-2S0V5YPDBDZusQ/exec" method="POST">
+                
+                <div class="form-group">
+                    <label for="fullName">مکمل نام *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cnic">شناختی کارڈ نمبر *</label>
+                    <input type="text" id="cnic" name="cnic" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">موبائل نمبر *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loanAmount">درکار قرض کی رقم *</label>
+                    <select id="loanAmount" name="loanAmount" required>
+                        <option value="350001-500000">3,50,001 - 5,00,000</option>
+                        <option value="500001-750000">5,00,001 - 7,50,000</option>
+                        <option value="750001-1000000">7,50,001 - 10,00,000</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="businessAddress">کاروباری پتہ *</label>
+                    <textarea id="businessAddress" name="businessAddress" required></textarea>
+                </div>
+
+                <input type="hidden" id="submissionDate" name="submissionDate">
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">درخواست جمع کریں</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Auto-fill submission date
+        document.getElementById('submissionDate').value = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+        // Open and Close Modal Functions
+        function openModal() {
+            document.getElementById('applicationModal').style.display = 'block';
+        }
+        function closeModal() {
+            document.getElementById('applicationModal').style.display = 'none';
+        }
+
+        // Form Submission without Page Refresh
+        document.getElementById("loanApplicationForm").addEventListener("submit", function(event){
+            event.preventDefault();
+            var form = this;
+
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(form)
+            }).then(response => response.text())
+            .then(data => {
+                alert("آپ کی درخواست کامیابی سے جمع کر دی گئی ہے!");
+                form.reset();
+                closeModal();
+            }).catch(error => console.error("Error:", error));
+        });
+    </script>
+
 </body>
 </html>
