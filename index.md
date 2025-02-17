@@ -94,6 +94,30 @@
         </form>
     </div>
 </div>
+<a href="https://wa.me/923460408190" class="whatsapp-button" target="_blank">
+    <img src="whatsapp-icon.png" alt="WhatsApp">
+</a>
+
+<style>
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.whatsapp-button img {
+    width: 40px;
+    height: 40px;
+}
+</style>
+
     <!-- Your other sections here -->
 
     <!-- Contact Section -->
