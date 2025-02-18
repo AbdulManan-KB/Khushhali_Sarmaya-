@@ -5,8 +5,11 @@
     --light-green: #98FB98;
     --white: #ffffff;
     --black: #000000;
+    --gray: #f5f5f5;
+    --dark-gray: #333;
 }
- 
+
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -16,78 +19,64 @@
 body {
     font-family: 'Noto Nastaliq Urdu', serif;
     line-height: 1.6;
-    background-color: #f5f5f5;
+    background-color: var(--gray);
+    direction: rtl;
+    text-align: right;
 }
 
-/* Update header styles */
+/* Header */
 .header {
     background-color: var(--white);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    padding: 1rem 5%;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    max-width: var(--max-width);
-    margin: 0 auto;
 }
 
-.header-content {
+.nav-links {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.site-title {
-    color: var(--dark-green);
-    font-size: 1.5rem;
-    margin: 0;
-    text-align: right;
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-size: 1rem;
 }
 
+.nav-links .cta-button {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.nav-links .cta-button:hover {
+    background-color: var(--secondary-blue);
+}
+
+/* Logo */
 .logo {
-    order: 2; /* Moves logo to the right */
+    order: 2;
 }
 
 .logo-img {
     height: 50px;
     width: auto;
-    vertical-align: middle;
 }
-
-/* Update responsive styles */
-@media (max-width: 768px) {
-    .header-content {
-        gap: 1rem;
-    }
-
-    .site-title {
-        font-size: 1.2rem;
-    }
-
-    .logo-img {
-        height: 40px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-}
-
-[Current timestamp: 2025-02-16 13:05:51]
-[User: AbdulManan-KB]
 
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
-    padding: 8rem 5% 4rem;
+    padding: 10rem 5% 4rem;
     color: var(--white);
     text-align: center;
 }
@@ -105,6 +94,22 @@ body {
 .hero-text {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+}
+
+.apply-now {
+    background-color: var(--light-green);
+    color: var(--black);
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.apply-now:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
 }
 
 /* Features Section */
@@ -126,7 +131,7 @@ body {
     background-color: var(--white);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex: 1;
     min-width: 250px;
@@ -146,7 +151,7 @@ body {
 /* Loan Details Section */
 .loan-details-section {
     padding: 4rem 5%;
-    background-color: #f9f9f9;
+    background-color: var(--gray);
 }
 
 .loan-info {
@@ -162,7 +167,7 @@ body {
     background-color: var(--white);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex: 1;
     min-width: 250px;
@@ -180,156 +185,3 @@ body {
     gap: 2rem;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin: 2rem auto;
-}
-
-.collateral-card {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    flex: 1;
-    min-width: 300px;
-}
-
-.collateral-card ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.collateral-card ul li {
-    margin: 0.5rem 0;
-    padding-right: 1.5rem;
-    position: relative;
-}
-
-.collateral-card ul li::before {
-    content: "✔";
-    color: var(--primary-green);
-    position: absolute;
-    right: 0;
-}
-
-/* Contact Section Styles */
-.contact-section {
-    background: var(--gradient-primary);
-    padding: 4rem 2rem;
-    color: var(--white);
-}
-
-.contact-info {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* Profile Section */
-.profile-section {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 400px;
-}
-
-.profile-image {
-    margin-bottom: 1rem;
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 4px solid #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    object-fit: cover;
-    display: inline-block;
-}
-
-.profile-details {
-    text-align: center;
-}
-
-.profile-name {
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin: 0.5rem 0;
-}
-
-.profile-title {
-    color: #d5d5d5;
-    font-size: 1.1rem;
-    margin: 0;
-}
-
-/* Contact Details */
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.phone-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background-color: var(--primary-green);
-    color: var(--white);
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.phone-button:hover {
-    background-color: var(--hover-green);
-    transform: translateY(-2px);
-}
-
-.contact-details p {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.contact-details i {
-    color: var(--light-gray);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .contact-section {
-        padding: 3rem 1rem;
-    }
-    
-    .profile-pic {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .profile-name {
-        font-size: 1.3rem;
-    }
-}
-
-[Current timestamp: 2025-02-16 16:42:15]
-[User: AbdulManan-KB]
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .feature-card, .info-card, .collateral-card {
-        min-width: 100%;
-    }
-}
