@@ -1,0 +1,187 @@
+:root {
+    --primary-green: #2E8B57;
+    --primary-blue: #1E90FF;
+    --secondary-blue: #4682B4;
+    --light-green: #98FB98;
+    --white: #ffffff;
+    --black: #000000;
+    --gray: #f5f5f5;
+    --dark-gray: #333;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    line-height: 1.6;
+    background-color: var(--gray);
+    direction: rtl;
+    text-align: right;
+}
+
+/* Header */
+.header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 5%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-size: 1rem;
+}
+
+.nav-links .cta-button {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.nav-links .cta-button:hover {
+    background-color: var(--secondary-blue);
+}
+
+/* Logo */
+.logo {
+    order: 2;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    padding: 10rem 5% 4rem;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.apply-now {
+    background-color: var(--light-green);
+    color: var(--black);
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.apply-now:hover {
+    background-color: var(--primary-green);
+    color: var(--white);
+}
+
+/* Features Section */
+.features-section {
+    padding: 4rem 5%;
+    background-color: var(--white);
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card i {
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+/* Loan Details Section */
+.loan-details-section {
+    padding: 4rem 5%;
+    background-color: var(--gray);
+}
+
+.loan-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.info-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Collateral Section */
+.collateral-section {
+    padding: 4rem 5%;
+    background-color: var(--white);
+}
+
+.collateral-types {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
